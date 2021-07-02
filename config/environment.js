@@ -7,3 +7,4 @@ export const dbURI =
 export const port = process.env.PORT || 4000
 // Secret string for JWT
 export const secret = process.env.SECRET || 'shhhh its a secret'
+// console.log(secret)

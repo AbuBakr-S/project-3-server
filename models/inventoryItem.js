@@ -13,9 +13,6 @@ const InventoryItemSchema = new mongoose.Schema({
   expiryDate: { 
     type: Date, 
     required: true,
-    // validate: [
-    //   { validator: (type) => (Date.parse(type) > Date.now()) }
-    // ], 
   },
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   // ? This will indicate whether an inventory item has been shared

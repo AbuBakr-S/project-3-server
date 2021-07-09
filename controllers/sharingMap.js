@@ -1,6 +1,6 @@
 import InventoryItem from '../models/inventoryItem.js'
 
-async function index(req, res, next) {
+async function index(res, next) {
   try {
     // ? get shared inventory items of all users
     const listOfAllSharedInventoryItemsOfAllUsers = await InventoryItem.find({ isShared: true })
@@ -16,7 +16,6 @@ async function index(req, res, next) {
         return item.user._id !== listOfAllSharedInventoryItemsOfAllUsers[index - 1].user._id
       }
     })
-    console.log('listOfSharingUsersItems', listOfSharingUsersItems)
 
     const listOfItemslistPerUser = []
     for (let i = 0; i < listOfSharingUsersItems.length; i++) {
@@ -28,7 +27,6 @@ async function index(req, res, next) {
       // ? add it to new array
       listOfItemslistPerUser.push(listOfUserItems)
     }
-    console.log('listOfItemslistPerUser',listOfItemslistPerUser)
 
     res.status(200).json(listOfItemslistPerUser)
   } catch (error) {

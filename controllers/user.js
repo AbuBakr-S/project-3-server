@@ -92,6 +92,7 @@ async function login(req, res, next) {
       throw new NotValid('There was a problem logging in.')
     }
 
+    console.log('Log in ', secret)
     const token = jwt.sign(
       { userId: user._id },
       secret,
